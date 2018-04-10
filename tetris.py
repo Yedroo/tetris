@@ -102,5 +102,15 @@ t_ksztalt_wzor = [[ '.....',
                     '..XX.',
                     '..X..',
                     '.....']]
+
+ksztalty = {'S': s_ksztalt_wzor,
+            'Z': z_ksztalt_wzor,
+            'J': j_ksztalt_wzor,
+            'L': l_ksztalt_wzor,
+            'I': i_ksztalt_wzor,
+            'O': o_ksztalt_wzor,
+            'T': t_ksztalt_wzor}
+
+
 def main():
     pygame.init()
