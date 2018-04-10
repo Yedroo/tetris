@@ -120,6 +120,10 @@ okno_wys = 240
 plansza_wys = 20
 plansza_szer = 10
 puste = '.'
+rozm_kwadratu = 1
+marg_x = int((okno_szer - plansza_wys * rozm_kwadratu) / 2)
+gorny_margines = okno_wys - (plansza_wys * rozm_kwadratu) - 1
+
 
 zielony = (0, 155, 0)
 kolor = zielony
@@ -145,6 +149,9 @@ def dodaj_na_plansze(plansza, element):
             if ksztalty[element['shape']][element['rotation']][x][y] != puste:
                 plansza[x + element['x']][y + element['y']] = element['kolor']
 
+def przeksztalc_na_pixel(boxx, boxy):
+    return (marg_x + (boxx * rozm_kwadratu)), (gorny_margines + (boxy * rozm_kwadratu))               
+                
 def main():
     pygame.init()
     okno_gry = pygame.display.set_mode((320, 240))
