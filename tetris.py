@@ -119,10 +119,10 @@ gra_szer = 10
 def main():
     pygame.init()
     okno_gry = pygame.display.set_mode((320, 240))
-def input(events):
-   for event in events:
-      if event.type == QUIT:
-         sys.exit(0)
+# def input(events):
+#   for event in events:
+#      if event.type == QUIT:
+#         sys.exit(0)
 
-while True:
-   input(pygame.event.get())
+# while True:
+#   input(pygame.event.get())
