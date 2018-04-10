@@ -111,6 +111,10 @@ ksztalty = {'S': s_ksztalt_wzor,
             'O': o_ksztalt_wzor,
             'T': t_ksztalt_wzor}
 
+okno_szer = 320
+okno_wys = 240
+gra_wys = 20
+gra_szer = 10
 
 def main():
     pygame.init()
