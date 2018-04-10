@@ -118,3 +118,4 @@ gra_szer = 10
 
 def main():
     pygame.init()
+    okno_gry = pygame.display.set_mode((320, 240))
