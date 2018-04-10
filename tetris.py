@@ -119,8 +119,8 @@ gra_szer = 10
 def dodaj_nowy_element():
     ksztalt = random.choice(list(ksztalty.keys()))
     nowy_ksztalt = {'ksztalt': ksztalt,
-                    'obrot': random.randint(0, len(ksztalty[ksztalt]) - 1)
-                    'x': int(gra_szer/2 - okno_szer/2)
+                    'obrot': random.randint(0, len(ksztalty[ksztalt]) - 1),
+                    'x': int(gra_szer/2 - okno_szer/2),
                     'y': -2}
 
 
