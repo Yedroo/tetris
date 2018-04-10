@@ -157,6 +157,16 @@ def rysuj_plansze(plansza):
     #rysuje border wokół planszy
     pygame.draw.rect(okno_gry, czarny, marg_x -3, gorny_margines -7, )
 
+def rysuj_element(element, pixelx=None, pixely=None):
+    ksztalt_do_rysowania = ksztalty[element['ksztalt']]
+    if pixelx == None and pixely == None:
+        pixelx, pixely = przeksztalc_na_pixel(element['x'], element['y'])
+
+    for x in range(wzor_szer):
+        for y in range(wzor_wys):
+            if ksztalt_do_rysowania[y][x] != puste:
+                rysuj_kwadrat(None, None, element['color'], pixelx + (x * rozm_kwadratu), pixely + (y*rozm_kwadratu))
+                
 def main():
     pygame.init()
 
