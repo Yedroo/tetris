@@ -113,20 +113,28 @@ ksztalty = {'S': s_ksztalt_wzor,
 
 okno_szer = 320
 okno_wys = 240
-gra_wys = 20
-gra_szer = 10
+plansza_wys = 20
+plansza_szer = 10
+puste = '.'
+
+def dodaj_plansze():
+    plansza = []
+    for i in range(plansza_szer):
+        plansza.append([puste] * plansza_wys)
+    return plansza
 
 def dodaj_nowy_element():
     ksztalt = random.choice(list(ksztalty.keys()))
-    nowy_ksztalt = {'ksztalt': ksztalt,
+    nowy_element = {'ksztalt': ksztalt,
                     'obrot': random.randint(0, len(ksztalty[ksztalt]) - 1),
                     'x': int(gra_szer/2 - okno_szer/2),
                     'y': -2}
-  return nowy_ksztalt
+    return nowy_element
 
 def main():
     pygame.init()
     okno_gry = pygame.display.set_mode((320, 240))
+    
 # def input(events):
 #   for event in events:
 #      if event.type == QUIT:
@@ -134,3 +142,4 @@ def main():
 
 # while True:
 #   input(pygame.event.get())
+
