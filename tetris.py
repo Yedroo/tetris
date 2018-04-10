@@ -122,7 +122,7 @@ def dodaj_nowy_element():
                     'obrot': random.randint(0, len(ksztalty[ksztalt]) - 1),
                     'x': int(gra_szer/2 - okno_szer/2),
                     'y': -2}
-
+  return nowy_ksztalt
 
 def main():
     pygame.init()
