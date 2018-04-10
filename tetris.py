@@ -1,10 +1,6 @@
 import pygame, sys,os
 from pygame.locals import *
 
-wzor_szer = 5
-wzor_wys = 5
-
-
 s_ksztalt_wzor = [[ '.....',
                     '.....',
                     '..XX.',
@@ -116,7 +112,8 @@ ksztalty = {'S': s_ksztalt_wzor,
             'T': t_ksztalt_wzor}
 
 
-
+wzor_szer = 5
+wzor_wys = 5
 okno_szer = 320
 okno_wys = 240
 plansza_wys = 20
