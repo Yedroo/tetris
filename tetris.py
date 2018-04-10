@@ -1,10 +1,6 @@
 import pygame, sys,os
 from pygame.locals import *
 
-
-wzor_szer = 5
-wzor_wys = 5
-
 s_ksztalt_wzor = [[ '.....',
                     '.....',
                     '..XX.',
@@ -115,18 +111,21 @@ ksztalty = {'S': s_ksztalt_wzor,
             'O': o_ksztalt_wzor,
             'T': t_ksztalt_wzor}
 
+
+
 okno_szer = 320
 okno_wys = 240
 plansza_wys = 20
 plansza_szer = 10
 puste = '.'
-rozm_kwadratu = 1
+rozm_kwadratu = 5
 marg_x = int((okno_szer - plansza_wys * rozm_kwadratu) / 2)
 gorny_margines = okno_wys - (plansza_wys * rozm_kwadratu) - 1
 
-
 zielony = (0, 155, 0)
 kolor = zielony
+
+okno_gry = pygame.display.set_mode((okno_szer, okno_wys))
 
 def dodaj_plansze():
     plansza = []
@@ -139,22 +138,22 @@ def dodaj_nowy_element():
     nowy_element = {'ksztalt': ksztalt,
                     'obrot': random.randint(0, len(ksztalty[ksztalt]) - 1),
                     'x': int(gra_szer/2 - okno_szer/2),
-                    'y': -2,
-                    'kolor': kolor}
+                    'y': -2}
     return nowy_element
 
-def dodaj_na_plansze(plansza, element):
-    for x in range(wzor_szer):
-        for y in range(wzor_wys):
-            if ksztalty[element['shape']][element['rotation']][x][y] != puste:
-                plansza[x + element['x']][y + element['y']] = element['kolor']
-
 def przeksztalc_na_pixel(boxx, boxy):
-    return (marg_x + (boxx * rozm_kwadratu)), (gorny_margines + (boxy * rozm_kwadratu))               
-                
+    return (marg_x + (boxx * rozm_kwadratu)), (gorny_margines + (boxy * rozm_kwadratu))
+
+def rysuj_kwadrat(boxx, boxy, color, pixelx=None, pixely=None):
+    if color == puste:
+        return
+    if picelx == None and pixely == None:
+        pixelx, pixely = przeksztalc_na_pixel(boxx, boxy)
+        pygame.draw.rect(okno_gry, kolor, (pixelx+1, pixely+1, rozm_kwadratu-1, rozm_kwadratu -1))
+
+
 def main():
     pygame.init()
-    okno_gry = pygame.display.set_mode((320, 240))
 
 # def input(events):
 #   for event in events:
@@ -163,4 +162,3 @@ def main():
 
 # while True:
 #   input(pygame.event.get())
-
