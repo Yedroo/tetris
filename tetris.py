@@ -147,7 +147,7 @@ def przeksztalc_na_pixel(boxx, boxy):
 def rysuj_kwadrat(boxx, boxy, color, pixelx=None, pixely=None):
     if color == puste:
         return
-    if picelx == None and pixely == None:
+    if pixelx == None and pixely == None:
         pixelx, pixely = przeksztalc_na_pixel(boxx, boxy)
         pygame.draw.rect(okno_gry, kolor, (pixelx+1, pixely+1, rozm_kwadratu-1, rozm_kwadratu -1))
 
