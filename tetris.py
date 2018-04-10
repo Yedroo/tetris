@@ -1,6 +1,10 @@
 import pygame, sys,os
 from pygame.locals import *
 
+wzor_szer = 5
+wzor_wys = 5
+
+
 s_ksztalt_wzor = [[ '.....',
                     '.....',
                     '..XX.',
@@ -123,6 +127,7 @@ marg_x = int((okno_szer - plansza_wys * rozm_kwadratu) / 2)
 gorny_margines = okno_wys - (plansza_wys * rozm_kwadratu) - 1
 
 zielony = (0, 155, 0)
+czarny = (0, 0, 0)
 kolor = zielony
 
 okno_gry = pygame.display.set_mode((okno_szer, okno_wys))
@@ -151,6 +156,9 @@ def rysuj_kwadrat(boxx, boxy, color, pixelx=None, pixely=None):
         pixelx, pixely = przeksztalc_na_pixel(boxx, boxy)
         pygame.draw.rect(okno_gry, kolor, (pixelx+1, pixely+1, rozm_kwadratu-1, rozm_kwadratu -1))
 
+def rysuj_plansze(plansza):
+    #rysuje border wokół planszy
+    pygame.draw.rect(okno_gry, czarny, marg_x -3, gorny_margines -7, )
 
 def main():
     pygame.init()
