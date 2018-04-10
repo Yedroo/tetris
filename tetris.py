@@ -125,6 +125,7 @@ gorny_margines = okno_wys - (plansza_wys * rozm_kwadratu) - 1
 
 zielony = (0, 155, 0)
 czarny = (0, 0, 0)
+niebieski = (0, 0, 155)
 kolor = zielony
 
 okno_gry = pygame.display.set_mode((okno_szer, okno_wys))
@@ -155,7 +156,13 @@ def rysuj_kwadrat(boxx, boxy, color, pixelx=None, pixely=None):
 
 def rysuj_plansze(plansza):
     #rysuje border wokół planszy
-    pygame.draw.rect(okno_gry, czarny, marg_x -3, gorny_margines -7, )
+    pygame.draw.rect(okno_gry, czarny, marg_x -3, gorny_margines -7, (plansza_szer * rozm_kwadratu) +8, (plansza_wys * rozm_kwadratu)+8, 5 )
+    #ponoć wypełnia tło
+    pygame.draw.rect(okno_gry, niebieski, (marg_x, gorny_margines, rozm_kwadratu * plansza_szer, rozm_kwadratu * plansza_wys))
+    #ma rysować pojedyncze kwadraty z elementów
+    for x in range (plansza_szer):
+        for y in range(plansza_szer):
+            rysuj_kwadrat(x, y, plansza[x, y])
 
 def rysuj_element(element, pixelx=None, pixely=None):
     ksztalt_do_rysowania = ksztalty[element['ksztalt']]
